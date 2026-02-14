@@ -1,48 +1,157 @@
-.about {  
-    padding: 50px;  
-    background-color: #f9f9f9;  
-    text-align: center;  
+.about {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.864);
 }
-.about-title {  
-    font-size: 2.5em;  
-    color: #333333;  
-    margin-bottom: 20px;  
-}
-.about-text {
-    font-size: 1.2em;
-    color: #666666;
-    max-width: 700px;
-    margin: 0 auto;
-}
-.about-text p {
-    margin-bottom: 15px;
-    line-height: 1.6;
-}
-.about-text a {
-    color: #007acc;
-    text-decoration: none;
-}
-.about-text a:hover {
-    text-decoration: underline;
-}
-.about-image {
-    margin-top: 30px;
+.picture-container {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-end;
+    background-color: rgba(16, 253, 253, 0.307);
+    margin-left: 200px;
+    overflow: hidden;
+    animation: fade-in 2s ease-in-out;
 }
 
-.about-image img {
-    max-width: 200px;
+.my-pic {
+    margin: 50px 50px 50px 0;
     border-radius: 50%;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 0 12px 12px rgba(16, 253, 253, 0.307);
 }
 
-@media (max-width: 600px) {
-    .about {
-        padding: 30px;
+.name h1 {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 25px;
+    margin-right: 50px;
+    font-size: 50px;
+    font-weight: bold;
+    text-shadow: 0 0 12px rgba(63, 177, 230, 0.5);
+    opacity: 0;
+    animation: fade-in 1s ease-in 1s forwards;
+}
+
+.wave {
+    display: inline-block;
+    animation: wave 3s infinite;
+    transform-origin: 75% 75%;
+    font-size: 50px;
+}
+
+.name h2 {
+    color: white;
+    font-size: 24px;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 0;
+    margin-bottom: 50px;
+    min-height: 36px; 
+    opacity: 0;
+    animation: fade-in 1s ease-in 2s forwards;
+}
+
+.name h2::after {
+    content: "Jr Front-end Developer";
+    animation: 
+        changeText 6s linear infinite,
+        fade 2s ease-in-out infinite;
+    animation-delay: 2s;
+}
+
+.name {
+    margin-bottom: 50px;
+    margin-left: 25px;
+}
+
+.about-me {
+    color: white;
+    font-size: 25px;
+    font-family: 'Open Sans', sans-serif;
+    margin-right: 50px;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fade-2 1s ease-in 3s forwards;
+}
+
+p {
+    color: white;
+    font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
+    text-align: justify;
+    font-style: italic;
+    margin-right: 30px;
+    line-height: 1.7;
+    opacity: 0;
+    animation: dissolve-in 2s ease-out 4s forwards;
+}
+
+@keyframes wave {
+    0% { transform: rotate(0deg); }
+    15% { transform: rotate(14deg); }
+    30% { transform: rotate(-8deg); }
+    40% { transform: rotate(14deg); }
+    50% { transform: rotate(-8deg); }
+    60% { transform: rotate(14deg); }
+    70% { transform: rotate(-8deg); }
+    85% { transform: rotate(14deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@keyframes fade {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes fade-2 {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fade-in {
+    0% { transform: translateX(-40px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes changeText {
+    0%, 33% {
+        content: "Jr Front-end Developer";
     }
-    .about-title {
-        font-size: 2em;
+    34%, 66% {
+        content: "Computer Science learner";
     }
-    .about-text {
-        font-size: 1em;
+    67%, 100% {
+        content: "and more to come...";
+    }
+}
+
+@keyframes dissolve-in {
+    0% {
+        opacity: 0;
+        filter: blur(15px);
+        transform: scale(1.02);
+    }
+    100% {
+        opacity: 1;
+        filter: blur(0px);
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 1080px) {
+    .picture-container {
+        flex-direction: column;
+        align-items: center;
+        margin-left: 0;
+    }
+
+    .my-pic {
+        margin: 20px 0;
+        height: 150px;
+        width: 150px;
+    }
+
+    .name h1 {
+        font-size: 30px;
+        margin: 20px 0 50px 0;
     }
 }
