@@ -1,0 +1,35 @@
+.projects {
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.864);
+	overflow: hidden;
+}
+
+.projects-content {
+	margin-left: 200px;
+	min-height: 350px;
+	background-color: rgba(16, 253, 253, 0.307);
+	opacity: 0;
+	transform: translateX(40px);
+}
+
+
+.projects.show .projects-content {
+	animation: slide-in-right 1.2s ease-out forwards;
+}
+
+@keyframes slide-in-right {
+	0% {
+		opacity: 0;
+		transform: translateX(40px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@media (max-width: 1080px) {
+	.projects-content {
+		margin-left: 50px;
+	}
+}

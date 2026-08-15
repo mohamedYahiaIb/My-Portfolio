@@ -14,4 +14,25 @@ code {
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 70px;
+}
+
+#about-section,
+#skills-section,
+#projects-section,
+#contacts-section {
+  scroll-margin-top: 70px;
+}
+
+@media (max-width: 1080px) {
+  html {
+    scroll-padding-top: 62px;
+  }
+
+  #about-section,
+  #skills-section,
+  #projects-section,
+  #contacts-section {
+    scroll-margin-top: 62px;
+  }
 }

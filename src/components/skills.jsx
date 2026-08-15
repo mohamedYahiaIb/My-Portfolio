@@ -1,8 +1,24 @@
+import React, { useEffect, useRef, useState } from 'react';
 import '../styles/skills.css';
 
 function Skills() {
+    const skillsRef = useRef(null);
+    const [visible, setVisible] = useState(false);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(([entry]) => {
+            setVisible(entry.isIntersecting);
+        }, { threshold: 0.25 });
+
+        if (skillsRef.current) {
+            observer.observe(skillsRef.current);
+        }
+
+        return () => observer.disconnect();
+    }, []);
+
     return (
-        <section id="skills-section" className="skills">
+        <section ref={skillsRef} id="skills-section" className={visible ? 'skills show' : 'skills'}>
             <div className="skills-content">
                 <h1 className="skills-header">Skills:</h1>
                 <div className="skills-list">
@@ -15,7 +31,7 @@ function Skills() {
                     />
                     <img
                         className="logo"
-                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1822px-ISO_C%2B%2B_Logo.svg.png"
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1920px-ISO_C%2B%2B_Logo.svg.png"
                         height="100px"
                         alt="C++ Logo" 
                     />
@@ -36,7 +52,7 @@ function Skills() {
 
                     <img
                         className="logo"
-                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1452px-CSS3_logo_and_wordmark.svg.png"
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1920px-CSS3_logo_and_wordmark.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail"
                         height="100px"
                         alt="CSS Logo" 
                     />
@@ -50,7 +66,7 @@ function Skills() {
 
                     <img
                         className="logo"
-                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png"
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/3840px-React-icon.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail"
                         height="100px"
                         alt="React Logo" 
                     />
@@ -59,6 +75,7 @@ function Skills() {
             </div>
             
         </section>
-    )};
+    );
+}
 
 export default Skills;

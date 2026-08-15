@@ -9,7 +9,12 @@
     background-color: rgba(16, 253, 253, 0.307);
     margin-left: 200px;
     overflow: hidden;
-    animation: fade-in 2s ease-in-out;
+    opacity: 0;
+    transform: translateX(-40px);
+}
+
+.about.show .picture-container {
+    animation: fade-in 2s ease-in-out forwards;
 }
 
 .my-pic {
@@ -27,6 +32,9 @@
     font-weight: bold;
     text-shadow: 0 0 12px rgba(63, 177, 230, 0.5);
     opacity: 0;
+}
+
+.about.show .name h1 {
     animation: fade-in 1s ease-in 1s forwards;
 }
 
@@ -46,11 +54,14 @@
     margin-bottom: 50px;
     min-height: 36px; 
     opacity: 0;
+}
+
+.about.show .name h2 {
     animation: fade-in 1s ease-in 2s forwards;
 }
 
 .name h2::after {
-    content: "Jr Front-end Developer";
+    content: "Front-end Developer";
     animation: 
         changeText 6s linear infinite,
         fade 2s ease-in-out infinite;
@@ -69,6 +80,9 @@
     margin-right: 50px;
     margin-bottom: 20px;
     opacity: 0;
+}
+
+.about.show .about-me {
     animation: fade-2 1s ease-in 3s forwards;
 }
 
@@ -81,6 +95,9 @@ p {
     margin-right: 30px;
     line-height: 1.7;
     opacity: 0;
+}
+
+.about.show p {
     animation: dissolve-in 2s ease-out 4s forwards;
 }
 
@@ -114,7 +131,7 @@ p {
 
 @keyframes changeText {
     0%, 33% {
-        content: "Jr Front-end Developer";
+        content: "Front-end Developer";
     }
     34%, 66% {
         content: "Computer Science learner";
