@@ -94,7 +94,7 @@ function Projects() {
         <section ref={projectsRef} id="projects-section" className={visible ? 'projects show' : 'projects'}>
             <div className="projects-content">
                 <div className="projects-header">
-                    <h1>Projects:</h1>
+                    <h1>Projects</h1>
                     <div className="project-arrows">
                         <button className="arrow" aria-label="Previous project" onClick={goToPrevious}>❮</button>
                         <button className="arrow" aria-label="Next project" onClick={goToNext}>❯</button>
