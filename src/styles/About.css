@@ -52,8 +52,10 @@
     font-family: 'Poppins', sans-serif;
     margin-top: 0;
     margin-bottom: 50px;
-    min-height: 36px; 
+    min-height: 36px;
     opacity: 0;
+    display: block;
+    white-space: nowrap;
 }
 
 .about.show .name h2 {
@@ -62,7 +64,8 @@
 
 .name h2::after {
     content: "Front-end Developer";
-    animation: 
+    display: inline-block;
+    animation:
         changeText 6s linear infinite,
         fade 2s ease-in-out infinite;
     animation-delay: 2s;
@@ -122,6 +125,11 @@ p {
 @keyframes fade-2 {
     0% { opacity: 0; }
     100% { opacity: 1; }
+}
+
+@keyframes fade-in {
+    0% { transform: translateX(-40px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
 }
 
 @keyframes fade-in-right {

@@ -17,7 +17,8 @@ function About() {
         }
 
         return () => observer.disconnect();
-    }, [])
+    }, []);
+
     return (
         <section ref={aboutRef} id="about-section" className={visible ? "about show" : "about"}>
             <div className="picture-container">
@@ -27,7 +28,7 @@ function About() {
                     <h2></h2>
                     <h3 className='about-me'>About me:</h3>
                     <p>
-                        I am a passionate and dedicated junior front-end developer with a strong foundation in computer science. I'm on a continouous learning journey, eager to expand my skills and knowledge in computer science , web development and more... I thrive in collaborative environments and am excited to contribute to innovative projects that make a difference. 
+                        I am a passionate and dedicated junior front-end developer with a strong foundation in computer science. I'm on a continuous learning journey, eager to expand my skills and knowledge in computer science, web development, and more. I thrive in collaborative environments and am excited to contribute to innovative projects that make a difference.
                     </p>
                 </div>
             </div>
