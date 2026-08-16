@@ -30,6 +30,7 @@ const projectData = [
 
 function Projects() {
     const projectsRef = useRef(null);
+    const touchStartX = useRef(null);
     const [visible, setVisible] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [direction, setDirection] = useState('right');
@@ -66,6 +67,27 @@ function Projects() {
         setCurrentIndex(index);
     };
 
+    const handleTouchStart = (event) => {
+        touchStartX.current = event.touches[0].clientX;
+    };
+
+    const handleTouchEnd = (event) => {
+        if (touchStartX.current === null) return;
+
+        const touchEndX = event.changedTouches[0].clientX;
+        const swipeDistance = touchStartX.current - touchEndX;
+
+        if (Math.abs(swipeDistance) > 50) {
+            if (swipeDistance > 0) {
+                goToNext();
+            } else {
+                goToPrevious();
+            }
+        }
+
+        touchStartX.current = null;
+    };
+
     const currentProject = projectData[currentIndex];
 
     return (
@@ -83,6 +105,8 @@ function Projects() {
                     <article
                         key={`${currentProject.title}-${direction}`}
                         className={`project-card active ${direction === 'left' ? 'slide-left' : 'slide-right'}`}
+                        onTouchStart={handleTouchStart}
+                        onTouchEnd={handleTouchEnd}
                     >
                         <span className="project-index">0{currentIndex + 1}</span>
 
