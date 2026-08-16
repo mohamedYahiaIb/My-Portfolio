@@ -1,24 +1,30 @@
 import React, { useEffect, useRef, useState } from 'react';
 import '../styles/Projects.css';
+import portfolioImage from '../assets/Projects-pics/portfolio.JPG';
+import docNowImage from '../assets/Projects-pics/docnow.JPG';
+import rpgCreatureImage from '../assets/Projects-pics/rpg-creature-search.JPG';
 
 const projectData = [
     {
         title: 'Portfolio Website',
         description: 'A modern personal portfolio built with React, designed to showcase my work, skills, and front-end development experience.',
         tags: ['React', 'CSS', 'Responsive'],
-        links: "https://github.com/mohamedYahiaIb/My-Portfolio"
+        links: "https://github.com/mohamedYahiaIb/My-Portfolio",
+        image: portfolioImage
     },
     {
         title: 'DocNow',
         description: 'A clinical management Web App, I contributed in this project as a front-end developer.',
         tags: ['React', 'Tailwind', 'TypeScript'],
-        links: "secured"
+        links: "secured",
+        image: docNowImage
     },
     {
         title: 'RPG Creature Search App',
         description: 'A small Web App using Data fetching to search for RPG creatures',
         tags: ['HTML', 'CSS', 'JavaScript'],
-        links: "https://github.com/mohamedYahiaIb/rpg-creature-search-app"
+        links: "https://github.com/mohamedYahiaIb/rpg-creature-search-app",
+        image: rpgCreatureImage
     }
 ];
 
@@ -27,6 +33,7 @@ function Projects() {
     const [visible, setVisible] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [direction, setDirection] = useState('right');
+    const [previewImage, setPreviewImage] = useState(null);
 
     useEffect(() => {
         const observer = new IntersectionObserver(([entry]) => {
@@ -78,28 +85,46 @@ function Projects() {
                         className={`project-card active ${direction === 'left' ? 'slide-left' : 'slide-right'}`}
                     >
                         <span className="project-index">0{currentIndex + 1}</span>
-                        <h2>{currentProject.title}</h2>
-                        <p>{currentProject.description}</p>
 
-                        <div className="project-links">
-                            {currentProject.links === 'secured' ? (
-                                <span className="project-link secured">🔒 Secured</span>
-                            ) : (
-                                <a
-                                    href={currentProject.links}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    className="project-link"
-                                >
-                                    🌐 Visit Project
-                                </a>
-                            )}
-                        </div>
+                        <div className="project-layout">
+                            <div className="project-text">
+                                <h2>{currentProject.title}</h2>
+                                <p>{currentProject.description}</p>
 
-                        <div className="tag-list">
-                            {currentProject.tags.map((tag) => (
-                                <span key={tag} className="tag">{tag}</span>
-                            ))}
+                                <div className="project-links">
+                                    {currentProject.links === 'secured' ? (
+                                        <span className="project-link secured">🔒 Secured</span>
+                                    ) : (
+                                        <a
+                                            href={currentProject.links}
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            className="project-link"
+                                        >
+                                            🌐 Visit Project
+                                        </a>
+                                    )}
+                                </div>
+
+                                <div className="tag-list">
+                                    {currentProject.tags.map((tag) => (
+                                        <span key={tag} className="tag">{tag}</span>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <button
+                                type="button"
+                                className="project-image-button"
+                                aria-label={`Preview ${currentProject.title}`}
+                                onClick={() => setPreviewImage({ src: currentProject.image, title: currentProject.title })}
+                            >
+                                <img
+                                    src={currentProject.image}
+                                    alt={`${currentProject.title} preview`}
+                                    className="project-image"
+                                />
+                            </button>
                         </div>
                     </article>
 
@@ -116,6 +141,22 @@ function Projects() {
                     </div>
                 </div>
             </div>
+
+            {previewImage && (
+                <div className="image-preview-backdrop" onClick={() => setPreviewImage(null)}>
+                    <div className="image-preview-modal" onClick={(event) => event.stopPropagation()}>
+                        <button
+                            type="button"
+                            className="image-preview-close"
+                            onClick={() => setPreviewImage(null)}
+                            aria-label="Close preview"
+                        >
+                            ×
+                        </button>
+                        <img src={previewImage.src} alt={previewImage.title} className="image-preview" />
+                    </div>
+                </div>
+            )}
         </section>
     );
 }
