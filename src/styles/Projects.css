@@ -407,3 +407,23 @@
         font-size: 1.4rem;
     }
 }
+
+@media (max-width: 420px) {
+    .projects-content {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .projects-header h1 {
+        font-size: 2.1rem;
+    }
+
+    .project-arrows {
+        width: auto;
+        gap: 10px;
+    }
+
+    .project-card {
+        min-height: unset;
+    }
+}

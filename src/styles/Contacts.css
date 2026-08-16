@@ -102,3 +102,32 @@
         text-align: center;
     }
 }
+
+@media (max-width: 576px) {
+    .contacts-content {
+        margin-right: 0;
+        padding: 30px 16px 40px;
+    }
+
+    .contacts-content h1 {
+        margin-left: 0;
+        margin-bottom: 20px;
+        font-size: clamp(2rem, 7vw, 2.8rem);
+    }
+
+    .contacts-grid {
+        width: 100%;
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+
+    .contact-card {
+        width: 100%;
+        max-width: 220px;
+        padding: 14px 16px;
+    }
+
+    .contact-name {
+        font-size: 0.9rem;
+    }
+}

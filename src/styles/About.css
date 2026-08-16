@@ -10,11 +10,11 @@
     margin-left: 200px;
     overflow: hidden;
     opacity: 0;
-    transform: translateX(-40px);
+    transform: translateX(40px);
 }
 
 .about.show .picture-container {
-    animation: fade-in 2s ease-in-out forwards;
+    animation: fade-in-right 2s ease-in-out forwards;
 }
 
 .my-pic {
@@ -124,8 +124,8 @@ p {
     100% { opacity: 1; }
 }
 
-@keyframes fade-in {
-    0% { transform: translateX(-40px); opacity: 0; }
+@keyframes fade-in-right {
+    0% { transform: translateX(40px); opacity: 0; }
     100% { transform: translateX(0); opacity: 1; }
 }
 
@@ -170,5 +170,49 @@ p {
     .name h1 {
         font-size: 30px;
         margin: 20px 0 50px 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .about {
+        overflow: hidden;
+    }
+
+    .picture-container {
+        padding: 20px 16px 26px;
+        margin-left: 0;
+    }
+
+    .name {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .name h1 {
+        font-size: clamp(2rem, 7vw, 2.7rem);
+        margin: 12px 0 18px;
+    }
+
+    .wave {
+        font-size: clamp(2rem, 7vw, 2.7rem);
+    }
+
+    .name h2 {
+        font-size: 1.1rem;
+        margin-bottom: 16px;
+    }
+
+    .about-me {
+        font-size: 1.2rem;
+        margin: 0 0 12px;
+        text-align: center;
+    }
+
+    p {
+        font-size: 0.95rem;
+        margin-right: 0;
+        line-height: 1.6;
+        text-align: center;
     }
 }
