@@ -1,0 +1,103 @@
+.contacts {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.864);
+    overflow: hidden;
+}
+
+.contacts-content {
+    margin-right: 200px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    background-color: rgba(16, 253, 253, 0.307);
+    padding: 50px 0;
+    opacity: 0;
+    transform: translateX(-40px);
+    box-sizing: border-box;
+}
+
+.contacts.show .contacts-content {
+    animation: slide-in-left 1.2s ease-out forwards;
+}
+
+.contacts-content h1 {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(2.2rem, 4vw, 4rem);
+    font-weight: 700;
+    text-shadow: 0 0 12px rgba(63, 177, 230, 0.5);
+    margin-left: 50px;
+    margin-bottom: 30px;
+}
+
+.contacts-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    max-width: 900px;
+    width: 100%;
+    margin-left: 50px;
+}
+
+.contact-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 160px;
+    padding: 18px 20px;
+    border-radius: 18px;
+    background: rgba(4, 16, 30, 0.45);
+    border: 1px solid rgba(16, 253, 253, 0.3);
+    box-shadow: 0 0 20px rgba(16, 253, 253, 0.08);
+    color: white;
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 25px rgba(16, 253, 253, 0.18);
+    background: rgba(16, 253, 253, 0.08);
+}
+
+.contact-icon {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    display: block;
+}
+
+.contact-name {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.03rem;
+}
+
+@keyframes slide-in-left {
+    0% {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 1080px) {
+    .contacts-content {
+        margin-right: 50px;
+        align-items: center;
+        width: 100%;
+        padding: 30px 20px 40px;
+    }
+
+    .contacts-content h1,
+    .contacts-grid {
+        margin-left: 0;
+        text-align: center;
+    }
+}
