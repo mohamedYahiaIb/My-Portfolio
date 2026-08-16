@@ -20,7 +20,7 @@ function Skills() {
     return (
         <section ref={skillsRef} id="skills-section" className={visible ? 'skills show' : 'skills'}>
             <div className="skills-content">
-                <h1 className="skills-header">Skills/Programming Languages:</h1>
+                <h1 className="skills-header">Skills/Programming Languages</h1>
                 <div className="skills-list">
 
                     <img
